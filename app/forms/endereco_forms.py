@@ -1,8 +1,8 @@
 from django import forms
-from clientes.models import Endereco
+from ..models import EnderecoCliente
 
 
 class EnderecoForm(forms.ModelForm):
     class Meta:
-        model = Endereco
-        fields = ['rua', 'numero', 'complemento', 'bairro', 'cidade', 'pais']
+        model = EnderecoCliente
+        fields = ['rua', 'cidade', 'estado']

@@ -6,11 +6,13 @@ from ..forms.cliente_forms import ClienteForm
 from ..entidades import cliente, endereco
 from ..services import cliente_service, endereco_service
 
+
 # Create your views here.
 
 def listar_clientes(request):
     clientes = cliente_service.listar_clientes()
     return render(request, 'clientes/lista_clientes.html', {'clientes': clientes})
+
 
 def inserir_cliente(request):
     if request.method == "POST":
@@ -19,8 +21,8 @@ def inserir_cliente(request):
         if form_cliente.is_valid():
             nome = form_cliente.cleaned_data["nome"]
             email = form_cliente.cleaned_data["email"]
-            data_nascimento = form_cliente.cleaned_data["data_nascimento"]
             cpf = form_cliente.cleaned_data["cpf"]
+            data_nascimento = form_cliente.cleaned_data["data_nascimento"]
             profissao = form_cliente.cleaned_data["profissao"]
             if form_endereco.is_valid():
                 rua = form_endereco.cleaned_data["rua"]
@@ -37,9 +39,11 @@ def inserir_cliente(request):
         form_endereco = EnderecoForm()
     return render(request, 'clientes/form_cliente.html', {'form_cliente': form_cliente, 'form_endereco': form_endereco})
 
+
 def listar_cliente_id(request, id):
     cliente = cliente_service.listar_cliente_id(id)
     return render(request, 'clientes/lista_cliente.html', {'cliente': cliente})
+
 
 def editar_cliente(request, id):
     cliente_antigo = cliente_service.listar_cliente_id(id)
@@ -51,31 +55,27 @@ def editar_cliente(request, id):
     form_cliente = ClienteForm(request.POST or None, instance=cliente_antigo)
     if form_cliente.is_valid():
         nome = form_cliente.cleaned_data["nome"]
-        sobrenome = form_cliente.cleaned_data["sobrenome"]
-        sexo = form_cliente.cleaned_data["sexo"]
-        data_nascimento = form_cliente.cleaned_data["data_nascimento"]
         email = form_cliente.cleaned_data["email"]
+        cpf = form_cliente.cleaned_data["cpf"]
+        data_nascimento = form_cliente.cleaned_data["data_nascimento"]
         profissao = form_cliente.cleaned_data["profissao"]
         if form_endereco.is_valid():
             rua = form_endereco.cleaned_data["rua"]
-            numero = form_endereco.cleaned_data["numero"]
-            complemento = form_endereco.cleaned_data["complemento"]
-            bairro = form_endereco.cleaned_data["bairro"]
             cidade = form_endereco.cleaned_data["cidade"]
             estado = form_endereco.cleaned_data["estado"]
-            endereco_novo = endereco.Endereco(rua=rua, numero=numero, complemento=complemento, bairro=bairro,
-                                              cidade=cidade, estado=estado)
+            endereco_novo = endereco.Endereco(rua=rua, cidade=cidade, estado=estado)
             if cliente_antigo.endereco == None:
                 endereco_bd = endereco_service.cadastrar_endereco(endereco_novo)
-                cliente_novo = cliente.Cliente(nome=nome, sobrenome=sobrenome, sexo=sexo, data_nascimento=data_nascimento, email=email,
-                                               profissao=profissao, endereco=endereco_bd)
+                cliente_novo = cliente.Cliente(nome=nome, data_nascimento=data_nascimento, email=email,
+                                               profissao=profissao, cpf=cpf, endereco=endereco_bd)
             else:
                 endereco_service.editar_endereco(endereco_antigo, endereco_novo)
-                cliente_novo = cliente.Cliente(nome=nome, sobrenome=sobrenome, sexo=sexo, data_nascimento=data_nascimento, email=email,
-                                           profissao=profissao, endereco=cliente_antigo.endereco)
+                cliente_novo = cliente.Cliente(nome=nome, data_nascimento=data_nascimento, email=email,
+                                               profissao=profissao, cpf=cpf, endereco=cliente_antigo.endereco)
             cliente_service.editar_cliente(cliente_antigo, cliente_novo)
             return redirect('listar_clientes')
-    return render(request, 'clientes/form_cliente.html', {'form_cliente': form_cliente, 'form_endereco':form_endereco})
+    return render(request, 'clientes/form_cliente.html', {'form_cliente': form_cliente, 'form_endereco': form_endereco})
+
 
 def remover_cliente(request, id):
     cliente = cliente_service.listar_cliente_id(id)
