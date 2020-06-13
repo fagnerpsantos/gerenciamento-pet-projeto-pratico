@@ -5,24 +5,122 @@ Listagem de cliente
 {% endblock title %}
 
 {% block content %}
-<div class="card">
-    <div class="card-header">
-        Dados do cliente
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">Nome: {{cliente.nome}}</h5>
-        <h5 class="card-title">Sobrenome: {{cliente.sobrenome}}</h5>
-        <h5 class="card-title">Sexo: {{cliente.sexo}}</h5>
-        <h5 class="card-title">Data de Nascimento: {{cliente.data_nascimento}}</h5>
-        <h5 class="card-title">Email: {{cliente.email}}</h5>
-        <h5 class="card-title">Profissão: {{cliente.profissao}}</h5>
-        <hr>
-        <h4>Endereço</h4>
-        <h5 class="card-title">Rua: {{cliente.endereco.rua}}</h5>
-        <h5 class="card-title">Bairro: {{cliente.endereco.bairro}}</h5>
-        <h5 class="card-title">Cidade: {{cliente.endereco.cidade}}</h5>
-    </div>
-</div>
+<section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" alt="User profile picture">
+
+              <h3 class="profile-username text-center">{{cliente.nome}}</h3>
+
+              <p class="text-muted text-center">{{cliente.profissao}}</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Data de Nascimento</b> <a class="pull-right">{{cliente.data_nascimento}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Email</b> <a class="pull-right">{{cliente.email}}</a>
+                </li>
+              </ul>
+                <div class="row">
+                <div class="col-md-6">
+              <a href="{% url 'editar_cliente' cliente.id%}" class="btn btn-default btn-block"><b>Editar</b></a>
+                    </div>
+                    <div class="col-md-6">
+              <a href="{% url 'remover_cliente' cliente.id %}" class="btn btn-danger btn-block"><b>Remover</b></a>
+                    </div>
+                    </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Pets</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+
+              <p class="text-muted">
+                B.S. in Computer Science from the University of Tennessee at Knoxville
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+              <p class="text-muted">Malibu, California</p>
+
+              <hr>
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+              <p>
+                <span class="label label-danger">UI Design</span>
+                <span class="label label-success">Coding</span>
+                <span class="label label-info">Javascript</span>
+                <span class="label label-warning">PHP</span>
+                <span class="label label-primary">Node.js</span>
+              </p>
+              <hr>
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#timeline" data-toggle="tab">Histórico</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="active tab-pane" id="timeline">
+                <ul class="timeline timeline-inverse">
+                  <li class="time-label">
+                        <span class="bg-red">
+                          10 Feb. 2014
+                        </span>
+                  </li>
+
+                  <li>
+                    <i class="fa fa-paw bg-blue"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+
+                      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                      <div class="timeline-body">
+                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                        quora plaxo ideeli hulu weebly balihoo...
+                      </div>
+                      <div class="timeline-footer">
+                        <a class="btn btn-primary btn-xs">Read more</a>
+                        <a class="btn btn-danger btn-xs">Delete</a>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+
+                  <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 {% endblock content %}
 
