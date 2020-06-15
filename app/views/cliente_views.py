@@ -4,7 +4,7 @@ from django.views.decorators.cache import cache_page
 from ..forms.endereco_forms import EnderecoForm
 from ..forms.cliente_forms import ClienteForm
 from ..entidades import cliente, endereco
-from ..services import cliente_service, endereco_service
+from ..services import cliente_service, endereco_service, pet_service
 
 
 # Create your views here.
@@ -42,7 +42,8 @@ def inserir_cliente(request):
 
 def listar_cliente_id(request, id):
     cliente = cliente_service.listar_cliente_id(id)
-    return render(request, 'clientes/lista_cliente.html', {'cliente': cliente})
+    pets = pet_service.listar_pets(id)
+    return render(request, 'clientes/lista_cliente.html', {'cliente': cliente, 'pets': pets})
 
 
 def editar_cliente(request, id):
