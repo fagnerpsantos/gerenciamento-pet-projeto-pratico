@@ -36,3 +36,9 @@ class Pet(models.Model):
     categoria = models.CharField(max_length=2, choices=CATEGORIA_PET_CHOICES, null=False, blank=False)
     cor = models.CharField(max_length=2, choices=COR_PET_CHOICES, null=False, blank=False)
     dono = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False, blank=False)
+
+
+class ConsultaPet(models.Model):
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, null=False, blank=False)
+    data = models.DateField(null=False, blank=False)
+    motivo_consulta = models.TextField(null=False, blank=False)
