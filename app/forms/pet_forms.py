@@ -1,5 +1,5 @@
 from django import forms
-from ..models import Cliente, Pet
+from ..models import Pet
 
 class PetForm(forms.ModelForm):
     class Meta:
