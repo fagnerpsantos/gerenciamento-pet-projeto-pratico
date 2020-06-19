@@ -50,7 +50,10 @@ class ConsultaPet(models.Model):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE, null=False, blank=False)
     data = models.DateField(null=False, blank=False, auto_now_add=True)
     motivo_consulta = models.CharField(max_length=200, null=False, blank=False)
-    peso_atual = models.IntegerField(null=True, blank=True)
+    peso_atual = models.FloatField(null=True, blank=True)
+    medicamento_atual = models.TextField(null=True, blank=True)
+    medicamentos_prescritos = models.TextField(null=True, blank=True)
+    exames_prescritos = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.pet
