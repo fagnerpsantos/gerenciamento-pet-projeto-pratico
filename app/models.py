@@ -40,5 +40,5 @@ class Pet(models.Model):
 
 class ConsultaPet(models.Model):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE, null=False, blank=False)
-    data = models.DateField(null=False, blank=False)
+    data = models.DateField(null=False, blank=False, auto_now_add=True)
     motivo_consulta = models.TextField(null=False, blank=False)

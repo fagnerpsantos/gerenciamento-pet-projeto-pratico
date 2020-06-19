@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from ..forms import pet_forms
 from ..entidades import pet
-from ..services import pet_service, cliente_service
+from ..services import pet_service, cliente_service, consulta_service
 
 def inserir_pet(request, id):
     if request.method == "POST":
@@ -26,7 +26,8 @@ def listar_pets(request):
 
 def listar_pet_id(request, id):
     pet = pet_service.listar_pet_id(id)
-    return render(request, 'pets/lista_pet.html', {'pet': pet})
+    consultas = consulta_service.listar_consultas(id)
+    return render(request, 'pets/lista_pet.html', {'pet': pet, 'consultas': consultas})
 
 def editar_pet(request, id):
     pet_antigo = pet_service.listar_pet_id(id)
