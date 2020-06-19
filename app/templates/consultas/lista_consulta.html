@@ -5,12 +5,7 @@ Dados da consulta
 {% endblock title %}
 
 {% block content %}
-
-    <!-- Content Header (Page header) -->
-
-    <!-- Main content -->
     <section class="invoice">
-      <!-- title row -->
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -18,9 +13,7 @@ Dados da consulta
             <small class="pull-right">Data: {{consulta.data}}</small>
           </h2>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- info row -->
       <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
           Clínica
@@ -32,7 +25,6 @@ Dados da consulta
             Email: info@almasaeedstudio.com
           </address>
         </div>
-        <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           Pet
           <address>
@@ -41,18 +33,13 @@ Dados da consulta
             {{consulta.pet.get_cor_display}}<br>
           </address>
         </div>
-        <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           <b>Consulta</b><br>
           <br>
           <b>Data:</b> {{consulta.data}}<br>
           <b>Motivo:</b> {{consulta.motivo_consulta}}<br>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-
-      <!-- Table row -->
       <div class="row">
         <div class="col-xs-12 table-responsive">
           <table class="table table-striped">
@@ -76,26 +63,17 @@ Dados da consulta
             </tbody>
           </table>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
 
-
-      <!-- /.row -->
-
-      <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
           <button type="button" class="btn btn-success pull-right"><i class="fa fa-send"></i> Enviar por email
           </button>
-          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-            <i class="fa fa-download"></i> Gerar PDF
+          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" onclick="window.print();">
+            <i class="fa fa-print"></i> Imprimir
           </button>
         </div>
       </div>
     </section>
-    <!-- /.content -->
-    <div class="clearfix"></div>
-
 
 {% endblock content %}

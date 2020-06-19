@@ -5,6 +5,11 @@ Listagem de clientes
 {% endblock title %}
 
 {% block content %}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Listagem de clientes</h3>
+    </div>
+    <div class="box-body">
 <table class="table">
     <thead>
     <tr>
@@ -28,8 +33,11 @@ Listagem de clientes
     {% endfor %}
     </tbody>
 </table>
+        <hr>
 
 <a href="{% url 'cadastrar_cliente' %}">
     <button class="btn btn-primary">Cadastrar</button>
 </a>
+        </div>
+    </div>
 {% endblock content %}
