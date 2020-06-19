@@ -16,10 +16,6 @@ def inserir_consulta(request, id):
         form_consulta = consulta_forms.ConsultaPetForm()
     return render(request, 'consultas/form_consulta.html', {'form_consulta': form_consulta})
 
-def listar_consultas(request):
-    consultas = consulta_service.listar_consultas()
-    return render(request, 'consultas/lista_consultas.html', {'consultas': consultas})
-
 def listar_consulta_id(request, id):
     consulta = consulta_service.listar_consulta_id(id)
     return render(request, 'consultas/lista_consulta.html', {'consulta': consulta})
