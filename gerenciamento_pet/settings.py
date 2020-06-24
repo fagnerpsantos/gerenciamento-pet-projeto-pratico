@@ -128,3 +128,6 @@ STATIC_URL = '/static/'
 LOGOUT_URL = 'logout'
 
 LOGIN_URL = 'login'
+
+AUTH_USER_MODEL = 'app.Funcionario'
+

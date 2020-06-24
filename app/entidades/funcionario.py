@@ -1,9 +1,10 @@
 class Funcionario():
-    def __init__(self, nome, nascimento, cargo, user):
+    def __init__(self, nome, nascimento, cargo, username, password):
         self.__nome = nome
         self.__nascimento = nascimento
         self.__cargo = cargo
-        self.__user = user
+        self.__username = username
+        self.__password = password
 
     @property
     def nome(self):
@@ -30,9 +31,17 @@ class Funcionario():
         self.__cargo = cargo
 
     @property
-    def user(self):
-        return self.__user
+    def username(self):
+        return self.__username
 
-    @user.setter
-    def user(self, user):
-        self.__user = user
+    @username.setter
+    def username(self, username):
+        self.__username = username
+
+    @property
+    def password(self):
+        return self.__password
+
+    @password.setter
+    def password(self, password):
+        self.__password = password
