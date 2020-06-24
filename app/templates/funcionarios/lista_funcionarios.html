@@ -16,7 +16,7 @@ Listagem de clientes
                 <th>Nome</th>
                 <th>Data de Nascimento</th>
                 <th>Cargo</th>
-                <th>Ações</th>
+                <th>Usuário</th>
             </tr>
             </thead>
             <tbody>
@@ -25,10 +25,7 @@ Listagem de clientes
                 <td>{{i.nome}}</td>
                 <td>{{i.nascimento}}</td>
                 <td>{{i.get_cargo_display}}</td>
-                <td>
-                    <a href="{% url 'editar_funcionario' i.id %}">Editar</a>
-                    <a href="{% url 'remover_funcionario' i.id %}">Remover</a>
-                </td>
+                <td>{{i.user.username}}</td>
             </tr>
             {% endfor %}
             </tbody>
