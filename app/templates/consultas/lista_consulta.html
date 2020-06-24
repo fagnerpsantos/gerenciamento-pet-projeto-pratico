@@ -26,43 +26,29 @@ Dados da consulta
           </address>
         </div>
         <div class="col-sm-4 invoice-col">
-          Pet
-          <address>
-            <strong>{{consulta.pet.nome}}</strong><br>
-            {{consulta.pet.get_categoria_display}}<br>
-            {{consulta.pet.get_cor_display}}<br>
-          </address>
-        </div>
-        <div class="col-sm-4 invoice-col">
           <b>Consulta</b><br>
           <br>
           <b>Data:</b> {{consulta.data}}<br>
           <b>Motivo:</b> {{consulta.motivo_consulta}}<br>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 table-responsive">
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th>Pet</th>
-              <th>Motivo</th>
-              <th>Peso Atual</th>
-              <th>Medicamentos Prescritos</th>
-              <th>Exames Prescritos</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>{{consulta.pet.nome}}</td>
-              <td>{{consulta.motivo_consulta}}</td>
-              <td>{{consulta.peso_atual}}</td>
-              <td>{{consulta.medicamentos_prescritos}}</td>
-              <td>{{consulta.exames_prescritos}}</td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="col-sm-4 invoice-col">
+          <b>Pet</b><br>
+          <br>
+          <b>Nome:</b> {{consulta.pet.nome}}<br>
+          <b>Nascimento:</b> {{consulta.pet.nascimento}}<br>
         </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-12" style="word-wrap: break-word;">
+          <b>Dados da consulta</b><br>
+          <br>
+          <b>Motivo:</b> {{consulta.motivo_consulta}}<br>
+          <b>Peso atual:</b> {{consulta.peso_atual}} kg<br>
+          <b>Medicamentos Prescritos:</b> {{consulta.medicamentos_prescritos}}<br>
+          <b>Exames Prescritos:</b> {{consulta.exames_prescritos}}<br>
+        </div>
+
       </div>
 
       <div class="row no-print">

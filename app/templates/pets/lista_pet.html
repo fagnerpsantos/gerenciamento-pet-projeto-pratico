@@ -25,15 +25,6 @@ Listagem de Pet
                             <b>Cor</b> <a class="pull-right">{{pet.get_cor_display}}</a>
                         </li>
                     </ul>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="{% url 'editar_cliente' pet.id%}"
-                               class="btn btn-default btn-block"><b>Editar</b></a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="{% url 'remover_cliente' pet.id %}" class="btn btn-danger btn-block"><b>Remover</b></a>
-                        </div>
-                    </div>
                     <br>
                     <div class="row">
                         <div class="col-md-12">

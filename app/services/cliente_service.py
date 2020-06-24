@@ -17,10 +17,6 @@ def cadastrar_cliente(cliente):
                            data_nascimento=cliente.data_nascimento, profissao=cliente.profissao)
 
 def editar_cliente(cliente, cliente_novo):
-    # SQL Injection
-    # with connection.cursor() as cursor:
-    #     nome = "'Carlos' , email = 'ana@mail.com'"
-    #     cursor.execute(f"UPDATE clientes_cliente SET nome={nome} WHERE id=2")
     cliente.nome = cliente_novo.nome
     cliente.email = cliente_novo.email
     cliente.endereco = cliente_novo.endereco
