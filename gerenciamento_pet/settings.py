@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'django_adminlte',
+    "anymail",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'gerenciamento_pet.wsgi.application'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'fagnerpinheirosantos@gmail.com'
+EMAIL_HOST_PASSWORD = 'ofdybnyppbnkiqxk'
+
+# EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+
 
 
 # Database
